@@ -22,8 +22,8 @@ Exception이 아닌 IllegalArgumentException, IllegalStateException 등과 같�
 - [x] 상품명, 금액, 개수, 프로모션 이름
 
 ### Inventory 클래스
-- [ ] List<Product>를 가지고 있는 클래스
-- [ ] 클래스 생성시에 프로모션 날짜와 비교후에 해당하는 프로모션을 삽입
+- [x] Map<String, Product>를 가지고 있는 클래스
+- [ ] 클래스 생성시에 프로모션 날짜와 비교후에 해당하는 프로모션을 삽입 (// 고려 중)
 - [ ] 읽어올때 프로모션 제품만 있고 일반 재고가 없어도 일반재고도 넣어줘야 함
 
 ### 사용자 구매 상품, 수량 입력

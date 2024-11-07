@@ -3,6 +3,7 @@ package controller;
 import config.PathConfig;
 import dto.ProductDTO;
 import java.util.List;
+import model.Inventory;
 import model.Promotions;
 import util.FileUtil;
 import util.SplitUtil;
@@ -17,6 +18,7 @@ public final class LoadDataController {
         List<String> fileContents = FileUtil.readFile(PathConfig.PRODUCTS_FILE_PATH.getFilePath());
         for(String content: fileContents) {
             ProductDTO productDTO = SplitUtil.createProductDTOFromContent(content);
+            Inventory.productAdd(productDTO);
         }
     }
 
