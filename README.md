@@ -20,6 +20,7 @@ Exception이 아닌 IllegalArgumentException, IllegalStateException 등과 같�
 
 ### Product 클랫스
 - [x] 상품명, 금액, 개수, 프로모션 이름
+- [x] 개별 Product 출력 구현
 
 ### Inventory 클래스
 - [x] Map<String, Product>를 가지고 있는 클래스
