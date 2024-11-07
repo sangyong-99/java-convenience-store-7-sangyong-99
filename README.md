@@ -16,7 +16,7 @@ Exception이 아닌 IllegalArgumentException, IllegalStateException 등과 같�
 - [x] 현재 진행하는 프로모션인지 검증하는 함수(현재 날짜)
 
 ### Promotions 클래스
-- [ ] List<Promotion>를 가지고 있는 클래스
+- [x] List<Promotion>를 가지고 있는 싱글톤 클래스
 
 ### Inventory 클래스
 - [ ] 상품명, 금액, 개수, 프로모션 이름
