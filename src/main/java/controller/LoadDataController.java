@@ -5,7 +5,7 @@ import java.util.List;
 import model.Promotion;
 import model.Promotions;
 import util.FileUtil;
-import util.LocalDateUtil;
+import util.SplitUtil;
 
 public final class LoadDataController {
     public static void loadData() {
@@ -20,21 +20,9 @@ public final class LoadDataController {
 
     public static void promotionsData() {
         List<String> fileContents = FileUtil.readFile(PathConfig.PROMOTIONS_FILE_PATH.getFilePath());
-
         fileContents.stream()
-                .map(LoadDataController::createPromotionFromContent)
+                .map(SplitUtil::createPromotionFromContent)
                 .filter(promotion -> Promotion.currentPromotion(promotion.startTime(), promotion.endTime()))
                 .forEach(Promotions::add);
-    }
-
-    private static Promotion createPromotionFromContent(String content) {
-        String[] splitContent = content.split(",");
-        return new Promotion(
-                splitContent[0],
-                Integer.parseInt(splitContent[1]),
-                Integer.parseInt(splitContent[2]),
-                LocalDateUtil.parse(splitContent[3]),
-                LocalDateUtil.parse(splitContent[4])
-        );
     }
 }
