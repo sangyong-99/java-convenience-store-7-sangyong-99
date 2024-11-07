@@ -2,7 +2,6 @@ package controller;
 
 import config.PathConfig;
 import java.util.List;
-import model.Promotion;
 import model.Promotions;
 import util.FileUtil;
 import util.SplitUtil;
@@ -22,7 +21,7 @@ public final class LoadDataController {
         List<String> fileContents = FileUtil.readFile(PathConfig.PROMOTIONS_FILE_PATH.getFilePath());
         fileContents.stream()
                 .map(SplitUtil::createPromotionFromContent)
-                .filter(promotion -> Promotion.currentPromotion(promotion.startTime(), promotion.endTime()))
+//                .filter(promotion -> Promotion.currentPromotion(promotion.startTime(), promotion.endTime()))
                 .forEach(Promotions::add);
     }
 }
