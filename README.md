@@ -8,7 +8,7 @@ Exception이 아닌 IllegalArgumentException, IllegalStateException 등과 같�
 
 ### 상품, 프로모션 md 파일 읽어오기
 - [ ] 읽어올때 프로모션 제품만 있고 일반 재고가 없어도 일반재고도 넣어줘야 함
-- [ ] 읽어와서 클래스에 삽입
+- [x] 읽어와서 클래스에 삽입
 
 ### Promotion 클래스
 - [x] 프로모션 이름, 구매 개수, 증정 개수, 시작 날짜, 종료 날짜
