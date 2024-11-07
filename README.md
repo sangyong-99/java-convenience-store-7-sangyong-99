@@ -11,7 +11,7 @@ Exception이 아닌 IllegalArgumentException, IllegalStateException 등과 같�
 - [ ] 읽어와서 클래스에 삽입
 
 ### Promotion 클래스
-- [ ] 프로모션 이름, 구매 개수, 증정 개수, 시작 날짜, 종료 날짜
+- [x] 프로모션 이름, 구매 개수, 증정 개수, 시작 날짜, 종료 날짜
   - [x] 시작 날짜, 종료 날짜 문자열을 LocalDate로 변환
 - [x] 현재 진행하는 프로모션인지 검증하는 함수(현재 날짜)
 
