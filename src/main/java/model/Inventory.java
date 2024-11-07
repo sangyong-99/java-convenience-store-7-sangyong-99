@@ -45,5 +45,13 @@ public final class Inventory {
     public static Product getProduct(String name) {
         return productInventory.get(name);
     }
+
+    public static String printInventory() {
+        StringBuilder sb = new StringBuilder();
+        for (Product product : productInventory.values()) {
+            sb.append(product.toString()).append("\n");
+        }
+        return sb.toString();
+    }
 }
 

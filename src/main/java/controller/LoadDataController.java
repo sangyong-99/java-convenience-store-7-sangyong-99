@@ -7,11 +7,13 @@ import model.Inventory;
 import model.Promotions;
 import util.FileUtil;
 import util.SplitUtil;
+import view.OutputView;
 
 public final class LoadDataController {
     public static void loadData() {
         promotionsData();
         productsData();
+        OutputView.outputInventory();
     }
 
     public static void productsData() {
@@ -31,3 +33,4 @@ public final class LoadDataController {
                 .forEach(Promotions::add);
     }
 }
+

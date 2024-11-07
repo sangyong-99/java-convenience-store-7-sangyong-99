@@ -44,6 +44,8 @@ Exception이 아닌 IllegalArgumentException, IllegalStateException 등과 같�
 
 ### 재고 출력
 - [ ] 환영 인사와 함께 상품명, 가격, 프로모션 이름, 재고를 안내한다. 만약 재고가 0개라면 재고 없음을 출력
+  - [ ] 환영 인사
+  - [x] 재고 출력
 - <img width="265" alt="image" src="https://gist.github.com/user-attachments/assets/e73efa00-11ca-4151-8823-fc96842d85cc">
 
 ### 프로모션 할인
