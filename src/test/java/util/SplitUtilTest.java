@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public final class SplitUtilTest {
+class SplitUtilTest {
     private static final String PROMOTION_NAME = "Holiday Sale";
     private static final int PROMOTION_BUY = 1;
     private static final int PROMOTION_GET = 1;
