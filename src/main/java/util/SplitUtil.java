@@ -26,4 +26,8 @@ public final class SplitUtil {
                 Promotions.getPromotion(splitContent[3])
         );
     }
+
+    public static String[] splitContent(final String content) {
+        return content.split(COMMA);
+    }
 }
