@@ -1,9 +1,12 @@
 package view;
 
+import io.Output;
+import message.IOMessage;
 import model.Inventory;
 
 public class OutputView {
     public static void outputInventory() {
-        System.out.println(Inventory.printInventory());
+        Output.printlnMessage(IOMessage.INVENTORY_STATUS_MESSAGE.getMessage());
+        Output.printlnMessage(Inventory.printInventory());
     }
 }

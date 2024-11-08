@@ -43,8 +43,8 @@ Exception이 아닌 IllegalArgumentException, IllegalStateException 등과 같�
 - [ ] 결제된 수량만큼 실시간으로 해당 상품의 재고에서 차감하여 수량을 관리한다. (다음 고객이 구매할 때 정확한 재고 정보를 제공)
 
 ### 재고 출력
-- [ ] 환영 인사와 함께 상품명, 가격, 프로모션 이름, 재고를 안내한다. 만약 재고가 0개라면 재고 없음을 출력
-  - [ ] 환영 인사
+- [x] 환영 인사와 함께 상품명, 가격, 프로모션 이름, 재고를 안내한다. 만약 재고가 0개라면 재고 없음을 출력
+  - [x] 환영 인사
   - [x] 재고 출력
 - <img width="265" alt="image" src="https://gist.github.com/user-attachments/assets/e73efa00-11ca-4151-8823-fc96842d85cc">
 
