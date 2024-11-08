@@ -7,7 +7,7 @@ import model.Order;
 import validation.InputValidation;
 
 public final class RegexCheckerUtil {
-    public static final String INPUT_ORDER_REGEX =  "^\\[(.+)-(\\d+)\\]$";
+    public static final String INPUT_ORDER_REGEX =  "^\\[([^\\[\\]-]+)-(.+)\\]$";
 
     public static Order orderRegexChecker(String input) throws IllegalArgumentException {
         Pattern pattern = Pattern.compile(INPUT_ORDER_REGEX);
