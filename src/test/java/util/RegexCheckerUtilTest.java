@@ -8,7 +8,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class RegexCheckerUtilTest {
     @ParameterizedTest
-    @ValueSource(strings = {"[감자칩-q]", "사이다-2]", "[사이다-1", "[ -1]", "[사이다-0]", "ㅂ[사이다-12]", "[사이다-2]q", "[사이다- 1]"})
+    @ValueSource(strings = {"[감자칩-q]", "사이다-2]", "[사이다-1", "[ -1]", "[사이다-0]", "ㅂ[사이다-12]", "[사이다-2]q", "[사이다- 1]",
+            "[콜라-3][에너지바-5]", "[콜라-에너지바-5]"})
     @DisplayName("입력값 형식 예외 발생 확인하기")
     public void 입력값_정규식_예외_테스트(String input) {
         assertThatThrownBy(() -> RegexCheckerUtil.orderRegexChecker(input))
