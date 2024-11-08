@@ -53,5 +53,9 @@ public final class Inventory {
         }
         return sb.toString();
     }
+
+    public static void clear() {
+        productInventory.clear();
+    }
 }
 
