@@ -1,6 +1,6 @@
 package util;
 
-import exception.WrongInputException;
+import exception.WrongFormatInputException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import model.Order;
@@ -16,14 +16,14 @@ public final class RegexCheckerUtil {
             int purchaseCount = purchaseCountParse(matcher.group(2));
             return new Order(InputValidation.isNotBlank(matcher.group(1)), purchaseCount);
         } else {
-            throw new WrongInputException();
+            throw new WrongFormatInputException();
         }
     }
 
     private static int purchaseCountParse(final String count) throws IllegalArgumentException {
         int purchaseCount = Parse.parseInteger(count);
         if (purchaseCount <= 0) {
-            throw new WrongInputException();
+            throw new WrongFormatInputException();
         }
         return purchaseCount;
     }
