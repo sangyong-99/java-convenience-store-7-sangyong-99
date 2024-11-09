@@ -20,7 +20,7 @@ class ProductTest {
 
     @Test
     @DisplayName("PromotionProduct 설정 테스트")
-    public void testSetPromotionProduct() {
+    public void 프로모션_상품_테스트() {
         String expectValue = "- Laptop 1,000원 3개 Holiday Sale\n" + "- Laptop 1,000원 5개";
         product.setPromotionProduct(3, promotion);
         assertThat(product.toString()).isEqualTo(expectValue);
@@ -28,7 +28,7 @@ class ProductTest {
 
     @Test
     @DisplayName("CommonProduct 설정 테스트")
-    public void testSetCommonProduct() {
+    public void 일반_상품_설정_테스트() {
         String expectValue = "- Laptop 1,000원 10개";
         product.setCommonProduct(10);
         assertThat(product.toString()).contains(expectValue);
@@ -36,7 +36,7 @@ class ProductTest {
 
     @Test
     @DisplayName("일반 상품 구매 확인하기")
-    public void testPurchaseCommonProduct() {
+    public void 일반_상품_구매_테스트() {
         product.purchaseCommonProduct(3);
         assertThat(product.getQuantity()).isEqualTo(2);
     }
