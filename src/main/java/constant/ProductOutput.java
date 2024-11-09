@@ -1,6 +1,6 @@
 package constant;
 
-public enum OutputConstant {
+public enum ProductOutput {
     PROMOTION_PRODUCT_STR_FORMAT("- %s %,d원 %s %s"),
     COMMON_PRODUCT_STR_FORMAT("- %s %,d원 %s"),
     NO_INVENTORY("재고 없음"),
@@ -8,7 +8,7 @@ public enum OutputConstant {
 
     private final String constant;
 
-    OutputConstant(final String constant) {
+    ProductOutput(final String constant) {
         this.constant = constant;
     }
 

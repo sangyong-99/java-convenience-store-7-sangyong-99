@@ -1,6 +1,6 @@
 package view;
 
-import constant.OutputConstant;
+import constant.ProductOutput;
 import model.Product;
 
 public class ProductOutputFormatter {
@@ -20,7 +20,7 @@ public class ProductOutputFormatter {
     }
 
     private String formatPromotionProductOutput() {
-        return String.format(OutputConstant.PROMOTION_PRODUCT_STR_FORMAT.getConstant(),
+        return String.format(ProductOutput.PROMOTION_PRODUCT_STR_FORMAT.getConstant(),
                 product.getProductName(),
                 product.getPrice(),
                 formatQuantity(product.getPromotionQuantity()),
@@ -28,7 +28,7 @@ public class ProductOutputFormatter {
     }
 
     private String formatCommonProductOutput() {
-        return String.format(OutputConstant.COMMON_PRODUCT_STR_FORMAT.getConstant(),
+        return String.format(ProductOutput.COMMON_PRODUCT_STR_FORMAT.getConstant(),
                 product.getProductName(),
                 product.getPrice(),
                 formatQuantity(product.getQuantity()));
@@ -36,8 +36,8 @@ public class ProductOutputFormatter {
 
     private String formatQuantity(int quantity) {
         if (quantity == 0) {
-            return OutputConstant.NO_INVENTORY.getConstant();
+            return ProductOutput.NO_INVENTORY.getConstant();
         }
-        return quantity + OutputConstant.COUNT.getConstant();
+        return quantity + ProductOutput.COUNT.getConstant();
     }
 }
