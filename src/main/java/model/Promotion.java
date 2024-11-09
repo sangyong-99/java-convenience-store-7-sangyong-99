@@ -7,4 +7,8 @@ public record Promotion(String promotionName, int buy, int get, LocalDate startT
     public static boolean currentPromotion(LocalDate startTime, LocalDate endTime) {
         return LocalDateUtil.isWithinPeriod(startTime, endTime);
     }
+
+    public int buyPlusGet() {
+        return buy + get;
+    }
 }
