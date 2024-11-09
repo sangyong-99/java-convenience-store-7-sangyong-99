@@ -33,4 +33,11 @@ class ProductTest {
         product.setCommonProduct(10);
         assertThat(product.toString()).contains(expectValue);
     }
+
+    @Test
+    @DisplayName("일반 상품 구매 확인하기")
+    public void testPurchaseCommonProduct() {
+        product.purchaseCommonProduct(3);
+        assertThat(product.getQuantity()).isEqualTo(2);
+    }
 }
