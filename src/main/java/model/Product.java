@@ -46,6 +46,10 @@ public class Product {
         this.quantity = quantity;
     }
 
+    public int getTotalQuantity() {
+        return quantity + promotionQuantity;
+    }
+
     @Override
     public String toString() {
         ProductOutputFormatter formatter = new ProductOutputFormatter(this);

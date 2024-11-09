@@ -1,6 +1,7 @@
 package validation;
 
 import exception.NotExistProductException;
+import exception.OutOfStockException;
 import model.Inventory;
 import model.Order;
 import model.Orders;
@@ -18,11 +19,13 @@ public final class InputOrderValidation {
         }
     }
 
-    private static void orderValidation(Order productOrder) {
+    private static void orderValidation(final Order productOrder) {
         Product product = Inventory.getProduct(productOrder.orderProductName());
         if (product == null) {
             throw new NotExistProductException();
         }
-        // 추가 구현
+        if (product.getTotalQuantity() < productOrder.purchaseCount()) {
+            throw new OutOfStockException();
+        }
     }
 }
