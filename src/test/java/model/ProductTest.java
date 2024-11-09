@@ -37,7 +37,7 @@ class ProductTest {
     @Test
     @DisplayName("일반 상품 구매 확인하기")
     public void 일반_상품_구매_테스트() {
-        product.purchaseCommonProduct(3);
+        product.purchaseProduct(3, 0);
         assertThat(product.getQuantity()).isEqualTo(2);
     }
 }

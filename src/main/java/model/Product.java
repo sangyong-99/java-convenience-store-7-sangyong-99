@@ -50,8 +50,9 @@ public class Product {
         return quantity + promotionQuantity;
     }
 
-    public void purchaseCommonProduct(int purchaseQuantity) {
-        quantity -= purchaseQuantity;
+    public void purchaseProduct(int purchaseCommonQuantity, int purchasePromotionQuantity) {
+        quantity -= purchaseCommonQuantity;
+        promotionQuantity -= purchasePromotionQuantity;
     }
 
     @Override
