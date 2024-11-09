@@ -10,7 +10,7 @@ public final class InputView {
         return Input.inputMessage();
     }
 
-    public static String PartialPromotion(String productName, int count) {
+    public static String partialPromotion(String productName, int count) {
         String partialPromotionMessage = String.format(IOMessage.PARTIAL_PROMOTION_MESSAGE.getMessage(), productName, count);
         Output.printlnMessage(partialPromotionMessage);
         return Input.inputYOrN();
