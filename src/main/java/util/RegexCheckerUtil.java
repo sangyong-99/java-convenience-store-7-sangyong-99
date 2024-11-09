@@ -7,7 +7,7 @@ import model.Order;
 import validation.InputValidation;
 
 public final class RegexCheckerUtil {
-    private static final String INPUT_ORDER_REGEX =  "^\\[([^\\[\\]-]+)-(.+)\\]$";
+    private static final String INPUT_ORDER_REGEX = "^\\[([^\\[\\]-]+)-(.+)\\]$";
 
     public static Order orderRegexChecker(final String input) throws IllegalArgumentException {
         Pattern pattern = Pattern.compile(INPUT_ORDER_REGEX);
@@ -15,9 +15,8 @@ public final class RegexCheckerUtil {
         if (matcher.matches()) {
             int purchaseCount = purchaseCountParse(matcher.group(2));
             return new Order(InputValidation.isNotBlank(matcher.group(1)), purchaseCount);
-        } else {
-            throw new WrongFormatInputException();
         }
+        throw new WrongFormatInputException();
     }
 
     private static int purchaseCountParse(final String count) throws IllegalArgumentException {
