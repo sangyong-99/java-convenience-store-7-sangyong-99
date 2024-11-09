@@ -6,10 +6,12 @@ import view.OutputView;
 public final class ApplicationController {
     public void run() {
         LoadDataController.loadData();
-        OutputView.outputInventory();
-        OrderController.order();
-        PurchaseController.purchaseExec();
-        Receipts.print();
-        OutputView.outputInventory();
+        while(true) {
+            OutputView.outputInventory();
+            OrderController.order();
+            PurchaseController.purchaseExec();
+            Receipts.print();
+        }
+
     }
 }
