@@ -50,6 +50,10 @@ public class Product {
         return quantity + promotionQuantity;
     }
 
+    public void purchaseCommonProduct(int purchaseQuantity) {
+        quantity -= purchaseQuantity;
+    }
+
     @Override
     public String toString() {
         ProductOutputFormatter formatter = new ProductOutputFormatter(this);
