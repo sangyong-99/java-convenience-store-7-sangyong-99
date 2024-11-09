@@ -1,6 +1,6 @@
 package model;
 
-import constant.OutputConstant;
+import view.ProductOutputFormatter;
 
 public class Product {
     private final String productName;
@@ -17,6 +17,26 @@ public class Product {
         this.promotion = promotion;
     }
 
+    public String getProductName() {
+        return productName;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int getPromotionQuantity() {
+        return promotionQuantity;
+    }
+
+    public Promotion getPromotion() {
+        return promotion;
+    }
+
     public void setPromotionProduct(int promotionQuantity, Promotion promotion) {
         this.promotionQuantity = promotionQuantity;
         this.promotion = promotion;
@@ -28,29 +48,7 @@ public class Product {
 
     @Override
     public String toString() {
-        StringBuilder outputBuilder = new StringBuilder();
-        if (promotion != null) {
-            outputBuilder.append(PromotionProductOutput()).append("\n");
-        }
-        outputBuilder.append(CommonProductOutput());
-        return outputBuilder.toString();
-    }
-
-    private String PromotionProductOutput() {
-        return String.format(OutputConstant.PROMOTION_PRODUCT_STR_FORMAT.getConstant(), productName, price,
-                quantityOutput(promotionQuantity),
-                promotion.promotionName());
-    }
-
-    private String CommonProductOutput() {
-        return String.format(OutputConstant.COMMON_PRODUCT_STR_FORMAT.getConstant(), productName, price,
-                quantityOutput(quantity));
-    }
-
-    private String quantityOutput(int quantity) {
-        if (quantity == 0) {
-            return OutputConstant.NO_INVENTORY.getConstant();
-        }
-        return quantity + OutputConstant.COUNT.getConstant();
+        ProductOutputFormatter formatter = new ProductOutputFormatter(this);
+        return formatter.formatProductOutput();
     }
 }
