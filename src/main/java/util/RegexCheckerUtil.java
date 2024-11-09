@@ -7,9 +7,9 @@ import model.Order;
 import validation.InputValidation;
 
 public final class RegexCheckerUtil {
-    public static final String INPUT_ORDER_REGEX =  "^\\[([^\\[\\]-]+)-(.+)\\]$";
+    private static final String INPUT_ORDER_REGEX =  "^\\[([^\\[\\]-]+)-(.+)\\]$";
 
-    public static Order orderRegexChecker(String input) throws IllegalArgumentException {
+    public static Order orderRegexChecker(final String input) throws IllegalArgumentException {
         Pattern pattern = Pattern.compile(INPUT_ORDER_REGEX);
         Matcher matcher = pattern.matcher(input);
         if (matcher.matches()) {
@@ -20,7 +20,7 @@ public final class RegexCheckerUtil {
         }
     }
 
-    private static int purchaseCountParse(String count) throws IllegalArgumentException {
+    private static int purchaseCountParse(final String count) throws IllegalArgumentException {
         int purchaseCount = Parse.parseInteger(count);
         if (purchaseCount <= 0) {
             throw new WrongInputException();
