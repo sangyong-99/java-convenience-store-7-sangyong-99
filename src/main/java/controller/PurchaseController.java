@@ -37,16 +37,24 @@ public final class PurchaseController {
     public static void purchasePartialPromotion(Product product, Order order) {
         int buyPlusGet = product.getPromotion().buyPlusGet();
         int promotionGet = product.getPromotionQuantity() / buyPlusGet * buyPlusGet;
-        String inputValue = InputView.PartialPromotion(product.getProductName(), order.purchaseCount() - promotionGet);
+        String inputValue = InputView.partialPromotion(product.getProductName(), order.purchaseCount() - promotionGet);
         if (Objects.equals(inputValue, "Y")) {
-            processPurchase(product, order.purchaseCount() - product.getPromotionQuantity(),
-                    product.getPromotionQuantity(), product.getPromotionQuantity() / buyPlusGet);
+            yPartialPromotion(product, order, buyPlusGet);
             return;
         }
+        nPartialPromotion(product, buyPlusGet, promotionGet);
+    }
+
+    public static void yPartialPromotion(Product product, Order order, int buyPlusGet) {
+        processPurchase(product, order.purchaseCount() - product.getPromotionQuantity(),
+                product.getPromotionQuantity(), product.getPromotionQuantity() / buyPlusGet);
+    }
+
+    public static void nPartialPromotion(Product product, int buyPlusGet, int promotionGet) {
         processPurchase(product, 0, promotionGet, product.getPromotionQuantity() / buyPlusGet);
     }
 
-    public static void processPurchase(Product product, int quantity, int promotionQuantity, int giftQuantity) {
+    private static void processPurchase(Product product, int quantity, int promotionQuantity, int giftQuantity) {
         product.purchaseProduct(quantity, promotionQuantity);
         Receipts.add(
                 new Purchase(product.getProductName(), quantity + promotionQuantity, giftQuantity, product.getPrice()));
