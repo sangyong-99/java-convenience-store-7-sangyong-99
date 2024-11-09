@@ -11,8 +11,16 @@ public final class InputView {
     }
 
     public static String partialPromotion(String productName, int count) {
-        String partialPromotionMessage = String.format(IOMessage.PARTIAL_PROMOTION_MESSAGE.getMessage(), productName, count);
+        String partialPromotionMessage = String.format(IOMessage.PARTIAL_PROMOTION_MESSAGE.getMessage(), productName,
+                count);
         Output.printlnMessage(partialPromotionMessage);
+        return Input.inputYOrN();
+    }
+
+    public static String additionalPromotionQuantity(String productName) {
+        String additionalPromotionQuantityMessage = String.format(
+                IOMessage.ADDITIONAL_PROMOTION_QUANTITY_MESSAGE.getMessage(), productName);
+        Output.printlnMessage(additionalPromotionQuantityMessage);
         return Input.inputYOrN();
     }
 }
