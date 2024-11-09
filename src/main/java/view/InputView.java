@@ -28,4 +28,9 @@ public final class InputView {
         Output.printlnMessage(IOMessage.MEMBERSHIP_DISCOUNT_MESSAGE.getMessage());
         return Input.inputYOrN();
     }
+
+    public static String exitCheck() {
+        Output.printlnMessage(IOMessage.EXIT_CHECK_MESSAGE.getMessage());
+        return Input.inputYOrN();
+    }
 }

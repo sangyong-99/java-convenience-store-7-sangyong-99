@@ -11,7 +11,6 @@ import view.InputView;
 
 public final class PurchaseController {
     public static void purchaseExec() {
-        Receipts.clear();
         for (Order order : Orders.getOrders()) {
             purchaseProduct(order);
         }

@@ -1,6 +1,5 @@
 package controller;
 
-import model.Orders;
 import validation.InputOrderValidation;
 import view.InputView;
 import view.OutputView;
@@ -18,7 +17,6 @@ public final class OrderController {
     }
 
     private static void orderInput() throws IllegalArgumentException {
-        Orders.clearOrders();
         String inputOrder = InputView.inputOrder();
         InputOrderValidation.inputOrderValidation(inputOrder);
     }
