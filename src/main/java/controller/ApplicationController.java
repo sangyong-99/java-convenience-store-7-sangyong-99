@@ -10,8 +10,8 @@ public final class ApplicationController {
             OutputView.outputInventory();
             OrderController.order();
             PurchaseController.purchaseExec();
+            MembershipController.membership();
             Receipts.print();
         }
-
     }
 }

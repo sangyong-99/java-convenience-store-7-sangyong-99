@@ -5,13 +5,18 @@ import java.util.List;
 
 public final class Receipts {
     private static final List<Purchase> receipts = new ArrayList<>();
-    private static final boolean membershipDiscount = false;
+    private static boolean membershipDiscount = false;
 
     private Receipts() {
     }
 
     public static void clear() {
         receipts.clear();
+        membershipDiscount = false;
+    }
+
+    public static void isMembershipDiscount() {
+        membershipDiscount = true;
     }
 
     public static void add(Purchase purchase) {

@@ -23,4 +23,9 @@ public final class InputView {
         Output.printlnMessage(additionalPromotionQuantityMessage);
         return Input.inputYOrN();
     }
+
+    public static String membershipDiscount() {
+        Output.printlnMessage(IOMessage.MEMBERSHIP_DISCOUNT_MESSAGE.getMessage());
+        return Input.inputYOrN();
+    }
 }
