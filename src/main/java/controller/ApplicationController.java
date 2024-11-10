@@ -20,7 +20,7 @@ public final class ApplicationController {
         OrderController.order();
         PurchaseController.purchaseExec();
         MembershipController.membership();
-        Receipts.print();
+        OutputView.outputReceipts();
     }
 
     public void clear() {
