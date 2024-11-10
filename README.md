@@ -66,7 +66,7 @@ Exception이 아닌 IllegalArgumentException, IllegalStateException 등과 같�
 - [x] 멤버십 할인의 최대 한도는 8,000원
 
 ### 영수증 출력
-- [ ] 구매 내역과 산출한 금액 정보를 영수증으로 출력
+- [x] 구매 내역과 산출한 금액 정보를 영수증으로 출력
 - <img width="288" alt="image" src="https://gist.github.com/user-attachments/assets/d4ce447f-7b28-45f0-a7da-070201ef69e8">
 
 ### 프로그램 전체 출력

@@ -3,6 +3,7 @@ package view;
 import io.Output;
 import message.IOMessage;
 import model.Inventory;
+import model.Receipts;
 
 public class OutputView {
     public static void outputInventory() {
@@ -12,5 +13,9 @@ public class OutputView {
 
     public static void outputErrorMessage(IllegalArgumentException error) {
         Output.printlnMessage(error.getMessage());
+    }
+
+    public static void outputReceipts() {
+        Receipts.print();
     }
 }
