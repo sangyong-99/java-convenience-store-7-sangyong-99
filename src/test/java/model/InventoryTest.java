@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static util.SplitUtil.createPromotionFromContent;
 
 import dto.ProductDTO;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,6 +20,10 @@ class InventoryTest {
         Promotions.add(promotion);
         commonProductDTO = SplitUtil.createProductDTOFromContent("콜라,1000,20,null");
         promotionProductDTO = SplitUtil.createProductDTOFromContent("콜라,1000,10,탄산2+1");
+    }
+
+    @AfterEach
+    public void clear() {
         Inventory.clear();
     }
 

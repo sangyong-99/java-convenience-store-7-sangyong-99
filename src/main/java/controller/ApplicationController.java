@@ -23,7 +23,7 @@ public final class ApplicationController {
         OutputView.outputReceipts(Receipts.getPurchases());
     }
 
-    public void clear() {
+    public static void clear() {
         Orders.clearOrders();
         Receipts.clear();
     }

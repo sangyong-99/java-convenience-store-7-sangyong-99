@@ -2,16 +2,17 @@ package model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.BeforeEach;
+import controller.ApplicationController;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class ReceiptsTest {
     Purchase purchase = new Purchase("콜라", 6, 1, 1500, 3);
 
-    @BeforeEach
+    @AfterEach
     public void clear() {
-        Receipts.clear();
+        ApplicationController.clear();
     }
 
     @Test
