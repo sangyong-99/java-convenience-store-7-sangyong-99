@@ -16,6 +16,7 @@ public class OutputView {
     }
 
     public static void outputReceipts() {
-        Receipts.print();
+        ReceiptsOutput printer = new ReceiptsOutput(Receipts.getPurchases());
+        printer.print();
     }
 }
