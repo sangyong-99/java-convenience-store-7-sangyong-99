@@ -23,6 +23,15 @@ public final class Receipts {
         receipts.add(purchase);
     }
 
+    public static int membershipDiscountPrice() {
+        int price = 0;
+        for (Purchase purchase : receipts) {
+            price += (purchase.price() * purchase.quantity()) - (purchase.promotionQuantity() * purchase.buyPlusGet()
+                    * purchase.price());
+        }
+        return price;
+    }
+
     public static void print() {
         for(Purchase purchase: receipts) {
             System.out.println(purchase);
