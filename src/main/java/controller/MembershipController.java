@@ -18,7 +18,7 @@ public final class MembershipController {
     }
 
     private static int membershipCalculate() {
-        int discountPrice = (Receipts.membershipDiscountPrice() * 30) / 100;
+        int discountPrice = (Receipts.membershipDiscountEligiblePrice() * 30) / 100;
         return Math.min(discountPrice, MAX_LIMIT);
     }
 }

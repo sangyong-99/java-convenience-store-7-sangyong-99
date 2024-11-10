@@ -16,7 +16,7 @@ public final class Receipts {
         receipts.add(purchase);
     }
 
-    public static int membershipDiscountPrice() {
+    public static int membershipDiscountEligiblePrice() {
         int price = 0;
         for (Purchase purchase : receipts) {
             price += (purchase.price() * purchase.quantity())
