@@ -76,7 +76,9 @@ public final class PurchaseController {
     }
 
     public static void nPartialPromotion(Product product, int buyPlusGet, int promotionGet) {
-        processPurchase(product, 0, promotionGet, promotionGet / buyPlusGet);
+        if (promotionGet != 0) {
+            processPurchase(product, 0, promotionGet, promotionGet / buyPlusGet);
+        }
     }
 
     private static void processPurchase(Product product, int quantity, int promotionQuantity, int giftQuantity) {
