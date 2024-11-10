@@ -81,7 +81,12 @@ public final class PurchaseController {
 
     private static void processPurchase(Product product, int quantity, int promotionQuantity, int giftQuantity) {
         product.purchaseProduct(quantity, promotionQuantity);
+        int buyPlusGet = 0;
+        if (product.getPromotion() != null) {
+            buyPlusGet = product.getPromotion().buyPlusGet();
+        }
         Receipts.add(
-                new Purchase(product.getProductName(), quantity + promotionQuantity, giftQuantity, product.getPrice()));
+                new Purchase(product.getProductName(), quantity + promotionQuantity, giftQuantity, product.getPrice(),
+                        buyPlusGet));
     }
 }
