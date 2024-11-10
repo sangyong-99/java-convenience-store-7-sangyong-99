@@ -26,7 +26,7 @@ public final class PurchaseController {
     }
 
 
-    public static void purchasePromotion(Product product, Order order) {
+    private static void purchasePromotion(Product product, Order order) {
         if (order.purchaseCount() > product.getPromotionQuantity()) {
             purchasePartialPromotion(product, order);
             return;
@@ -34,7 +34,7 @@ public final class PurchaseController {
         purchaseAllPromotion(product, order);
     }
 
-    public static void purchaseAllPromotion(Product product, Order order) {
+    private static void purchaseAllPromotion(Product product, Order order) {
         int buyPlusGet = product.getPromotion().buyPlusGet();
         int promotionGet = order.purchaseCount() / buyPlusGet * buyPlusGet;
         if (shouldOfferAdditionalPromotion(order, product, buyPlusGet)) {
@@ -59,7 +59,7 @@ public final class PurchaseController {
     }
 
 
-    public static void purchasePartialPromotion(Product product, Order order) {
+    private static void purchasePartialPromotion(Product product, Order order) {
         int buyPlusGet = product.getPromotion().buyPlusGet();
         int promotionGet = product.getPromotionQuantity() / buyPlusGet * buyPlusGet;
         String inputValue = InputView.partialPromotion(product.getProductName(), order.purchaseCount() - promotionGet);
@@ -70,12 +70,12 @@ public final class PurchaseController {
         nPartialPromotion(product, buyPlusGet, promotionGet);
     }
 
-    public static void yPartialPromotion(Product product, Order order, int buyPlusGet) {
+    private static void yPartialPromotion(Product product, Order order, int buyPlusGet) {
         processPurchase(product, order.purchaseCount() - product.getPromotionQuantity(),
                 product.getPromotionQuantity(), product.getPromotionQuantity() / buyPlusGet);
     }
 
-    public static void nPartialPromotion(Product product, int buyPlusGet, int promotionGet) {
+    private static void nPartialPromotion(Product product, int buyPlusGet, int promotionGet) {
         if (promotionGet != 0) {
             processPurchase(product, 0, promotionGet, promotionGet / buyPlusGet);
         }
