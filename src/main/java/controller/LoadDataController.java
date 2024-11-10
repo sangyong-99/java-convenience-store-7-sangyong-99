@@ -4,6 +4,7 @@ import config.PathConfig;
 import dto.ProductDTO;
 import java.util.List;
 import model.Inventory;
+import model.Promotion;
 import model.Promotions;
 import util.FileUtil;
 import util.SplitUtil;
@@ -27,7 +28,7 @@ public final class LoadDataController {
         fileContents.stream()
                 .map(SplitUtil::createPromotionFromContent)
                 // 처음 promotions.promotion에 현재 기간에 행사 진행하는 것만 넣을 건지 다 넣을 건지 filter
-//                .filter(promotion -> Promotion.currentPromotion(promotion.startTime(), promotion.endTime()))
+                .filter(promotion -> Promotion.currentPromotion(promotion.startTime(), promotion.endTime()))
                 .forEach(Promotions::add);
     }
 }
