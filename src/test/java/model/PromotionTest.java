@@ -23,4 +23,12 @@ class PromotionTest {
         LocalDate endTime = LocalDateUtil.parse("2024-11-06");
         assertThat(Promotion.currentPromotion(startTime, endTime)).isEqualTo(false);
     }
+
+    @Test
+    @DisplayName("Promotion Buy + get 함수 확인하기")
+    public void 프로모션_구매수량_증정수량_더하기_테스트() {
+        Promotion blackFriday = new Promotion("Black Friday", 2, 1, LocalDate.parse("2024-11-29"),
+                LocalDate.parse("2024-11-30"));
+        assertThat(blackFriday.buyPlusGet()).isEqualTo(3);
+    }
 }
