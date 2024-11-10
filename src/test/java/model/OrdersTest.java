@@ -21,7 +21,7 @@ class OrdersTest {
     public void orders_추가_테스트() {
         Orders.addOrder(order1);
         Orders.addOrder(order2);
-        assertThat(Orders.getOrders().size()).isEqualTo(2);
+        assertThat(Orders.getOrders()).hasSize(2);
         assertThat(Orders.getOrders().get(0)).isEqualTo(order1);
         assertThat(Orders.getOrders().get(1)).isEqualTo(order2);
     }

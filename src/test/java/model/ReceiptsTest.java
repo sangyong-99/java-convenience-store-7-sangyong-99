@@ -19,7 +19,7 @@ class ReceiptsTest {
     @DisplayName("영수증에 구매 목록 추가 확인하기")
     public void 영수증_구매목록_추가_테스트() {
         Receipts.add(purchase);
-        assertThat(Receipts.getPurchases().size()).isEqualTo(1);
+        assertThat(Receipts.getPurchases()).hasSize(1);
     }
 
     @Test
