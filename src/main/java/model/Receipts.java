@@ -19,8 +19,9 @@ public final class Receipts {
     public static int membershipDiscountEligiblePrice() {
         int price = 0;
         for (Purchase purchase : receipts) {
-            price += (purchase.price() * purchase.quantity())
+            int discountEligiblePrice = (purchase.price() * purchase.quantity())
                     - (purchase.promotionQuantity() * purchase.buyPlusGet() * purchase.price());
+            price += discountEligiblePrice;
         }
         return price;
     }

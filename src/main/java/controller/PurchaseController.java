@@ -25,7 +25,6 @@ public final class PurchaseController {
         }
     }
 
-
     private static void purchasePromotion(Product product, Order order) {
         if (order.purchaseCount() > product.getPromotionQuantity()) {
             purchasePartialPromotion(product, order);
@@ -57,7 +56,6 @@ public final class PurchaseController {
         }
         processPurchase(product, 0, newQuantity, newQuantity / buyPlusGet);
     }
-
 
     private static void purchasePartialPromotion(Product product, Order order) {
         int buyPlusGet = product.getPromotion().buyPlusGet();
