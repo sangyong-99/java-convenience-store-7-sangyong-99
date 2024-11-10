@@ -1,9 +1,10 @@
 package view;
 
 import io.Output;
+import java.util.List;
 import message.IOMessage;
 import model.Inventory;
-import model.Receipts;
+import model.Purchase;
 
 public class OutputView {
     public static void outputInventory() {
@@ -15,8 +16,8 @@ public class OutputView {
         Output.printlnMessage(error.getMessage());
     }
 
-    public static void outputReceipts() {
-        ReceiptsOutput printer = new ReceiptsOutput(Receipts.getPurchases());
+    public static void outputReceipts(List<Purchase> receipts) {
+        ReceiptsOutput printer = new ReceiptsOutput(receipts);
         printer.print();
     }
 }
