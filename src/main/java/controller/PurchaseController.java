@@ -16,16 +16,16 @@ public final class PurchaseController {
         }
     }
 
-    public static void purchaseProduct(Order order) {
+    public static void purchaseProduct(final Order order) {
         Product product = Inventory.getProduct(order.orderProductName());
         if (product.getPromotion() != null) {
-            purchasePromotion(product, order); // 프로모션 행사 상품 구매
+            purchasePromotion(product, order);
         } else {
-            processPurchase(product, order.purchaseCount(), 0, 0); // 행사 상품이 아니라면
+            processPurchase(product, order.purchaseCount(), 0, 0);
         }
     }
 
-    private static void purchasePromotion(Product product, Order order) {
+    private static void purchasePromotion(final Product product, final Order order) {
         if (order.purchaseCount() > product.getPromotionQuantity()) {
             purchasePartialPromotion(product, order);
             return;
@@ -33,7 +33,7 @@ public final class PurchaseController {
         purchaseAllPromotion(product, order);
     }
 
-    private static void purchaseAllPromotion(Product product, Order order) {
+    private static void purchaseAllPromotion(final Product product, final Order order) {
         int buyPlusGet = product.getPromotion().buyPlusGet();
         int promotionGet = order.purchaseCount() / buyPlusGet * buyPlusGet;
         if (shouldOfferAdditionalPromotion(order, product, buyPlusGet)) {
@@ -43,12 +43,14 @@ public final class PurchaseController {
         processPurchase(product, 0, order.purchaseCount(), promotionGet / buyPlusGet);
     }
 
-    private static boolean shouldOfferAdditionalPromotion(Order order, Product product, int buyPlusGet) {
+    private static boolean shouldOfferAdditionalPromotion(final Order order, final Product product,
+                                                          final int buyPlusGet) {
         return order.purchaseCount() % buyPlusGet == product.getPromotion().buy() &&
                 product.getPromotionQuantity() >= (order.purchaseCount() + 1);
     }
 
-    private static void handleAdditionalPromotionOption(Product product, Order order, int buyPlusGet) {
+    private static void handleAdditionalPromotionOption(final Product product, final Order order,
+                                                        final int buyPlusGet) {
         String inputValue = InputView.additionalPromotionQuantity(product.getProductName());
         int newQuantity = order.purchaseCount();
         if (Objects.equals(inputValue, "Y")) {
@@ -57,7 +59,7 @@ public final class PurchaseController {
         processPurchase(product, 0, newQuantity, newQuantity / buyPlusGet);
     }
 
-    private static void purchasePartialPromotion(Product product, Order order) {
+    private static void purchasePartialPromotion(final Product product, final Order order) {
         int buyPlusGet = product.getPromotion().buyPlusGet();
         int promotionGet = product.getPromotionQuantity() / buyPlusGet * buyPlusGet;
         String inputValue = InputView.partialPromotion(product.getProductName(), order.purchaseCount() - promotionGet);
@@ -68,25 +70,25 @@ public final class PurchaseController {
         nPartialPromotion(product, buyPlusGet, promotionGet);
     }
 
-    private static void yPartialPromotion(Product product, Order order, int buyPlusGet) {
+    private static void yPartialPromotion(final Product product, final Order order, final int buyPlusGet) {
         processPurchase(product, order.purchaseCount() - product.getPromotionQuantity(),
                 product.getPromotionQuantity(), product.getPromotionQuantity() / buyPlusGet);
     }
 
-    private static void nPartialPromotion(Product product, int buyPlusGet, int promotionGet) {
+    private static void nPartialPromotion(final Product product, final int buyPlusGet, final int promotionGet) {
         if (promotionGet != 0) {
             processPurchase(product, 0, promotionGet, promotionGet / buyPlusGet);
         }
     }
 
-    private static void processPurchase(Product product, int quantity, int promotionQuantity, int giftQuantity) {
+    private static void processPurchase(final Product product, final int quantity, final int promotionQuantity,
+                                        final int giftQuantity) {
         product.purchaseProduct(quantity, promotionQuantity);
         int buyPlusGet = 0;
         if (product.getPromotion() != null) {
             buyPlusGet = product.getPromotion().buyPlusGet();
         }
-        Receipts.add(
-                new Purchase(product.getProductName(), quantity + promotionQuantity, giftQuantity, product.getPrice(),
-                        buyPlusGet));
+        Receipts.add(new Purchase(product.getProductName(), quantity + promotionQuantity,
+                giftQuantity, product.getPrice(), buyPlusGet));
     }
 }
